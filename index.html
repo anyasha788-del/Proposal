@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love 💗</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Comic Sans MS', cursive;
+}
+body{overflow:hidden;}
+
+.page{
+  width:100vw;
+  height:100vh;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.active{display:flex;}
+
+.pink{background:#ffc0cb;}
+.red{background:#ff6b6b;}
+
+button{
+  padding:10px 22px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  margin:10px;
+  cursor:pointer;
+}
+
+.next{
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  font-size:12px;
+}
+
+.bear{width:90px;margin-bottom:10px;}
+
+.btn-row{
+  display:flex;
+  gap:20px;
+  margin-top:15px;
+}
+
+.envelope{
+  width:160px;
+  height:110px;
+  background:white;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+}
+
+.letter{
+  width:92%;
+  height:78%;
+  background:#ffd6e8;
+  border-radius:15px;
+  padding:22px;
+  overflow-y:auto;
+  display:none;
+  line-height:2;
+  text-align:left;
+}
+
+.letter p{margin-bottom:18px;}
+
+.note{
+  background:#ffd6e8;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+
+.box{
+  width:90px;
+  height:90px;
+  background:white;
+  border-radius:15px;
+  margin:10px;
+  font-size:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* SHAKE */
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  50%{transform:translateX(6px)}
+  75%{transform:translateX(-6px)}
+  100%{transform:translateX(0)}
+}
+.shake{animation:shake 0.4s}
+
+/* POP */
+.pop{
+  position:absolute;
+  font-size:30px;
+  animation:popUp 1.2s forwards;
+}
+@keyframes popUp{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(-80px);opacity:0}
+}
+
+/* FALL */
+.fall{
+  position:absolute;
+  font-size:26px;
+  animation:fallDown 1.4s forwards;
+}
+@keyframes fallDown{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(120px);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page pink active" id="p1">
+  <h2><b>Oyy bhondu niche right pe dekhoo 💖</b></h2>
+  <button class="next" onclick="go(2)">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page pink" id="p2">
+  <img class="bear" src="https://i.imgur.com/6XK4JQp.png">
+  <h2>do you love me ?? 🥺👉🏻👈🏻</h2>
+
+  <div class="btn-row">
+    <button onclick="go(3)">YES</button>
+    <button onclick="jumpNo(this,'msg2')">NO</button>
+  </div>
+
+  <p id="msg2"></p>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page pink" id="p3">
+  <div class="envelope">❤️</div>
+  <button onclick="openLetter()">OPEN</button>
+
+  <div class="letter" id="letter">
+    <p>🥹💋 Bebyyyyy</p>
+
+    <p>
+      It's been a while jbse ham ek dusre ko jantee h we're already together
+      but I feel likee abii hi to sb kch suru huaa thaa.
+      Meiii bht jydaa khus hu tumhare sthh 🥹🙌🏻
+      it's the first time ki mein ita jyda khuss hu kisi chiz se.
+    </p>
+
+    <p>
+      plss hamesha mere sth rehnaaa mere bachee 💗
+      I've already made you mineee &lt;3
+    </p>
+
+    <p>
+      <b>"AUG 20 2025"</b> — a dayy that belongs to usss 🥹☝🏻
+      whii din jb ye sb suru huaa ita kuchh...
+    </p>
+
+    <p>
+      I lovee your efforts beby it's a lot for me
+      I love you for the way you are and it'll never change 💌
+    </p>
+
+    <p>
+      tum b hamesha mera sth denaa and esii pyr krte rehna
+      (specially hamesha merko icecream khilate rehnaa 🤭🍨)
+    </p>
+
+    <p>
+      icecream to wese b bht psnd hh
+      but tumhare sthh khati hu to thoda aurr acha lagne lgtaa
+      and the first bite rule jo tumne bnaya hh bada pyara lgta 🤭💌
+    </p>
+
+    <p>
+      thnkkuu my bebyyy itaa jydaa merse pyr krne k liye 🫶🏻
+      I think it's time ki mein bol du...
+      I have something to ask you 🥹👉🏻👈🏻
+    </p>
+
+    <button onclick="go(4)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page pink" id="p4">
+  <div class="note">
+    are you willing to be mine forever my ashmit dash ? 🥹🫴🏻
+  </div>
+
+  <div class="btn-row">
+    <button onclick="go(5)">YES</button>
+    <button onclick="jumpNo(this,'msg4')">NO</button>
+  </div>
+
+  <p id="msg4"></p>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page red" id="p5">
+  <div class="note">you're now mine forever my pumpkin 💋💌</div>
+
+  <div class="box" onclick="kisses(this)">🎁</div>
+  <div class="box" onclick="hugs(this)">🎁</div>
+  <div class="box" onclick="hearts(this)">🎁</div>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+}
+
+function jumpNo(btn,msgId){
+  btn.classList.remove("shake");
+  void btn.offsetWidth;
+  btn.classList.add("shake");
+
+  btn.style.transform =
+    `translate(${Math.random()*40-20}px, ${Math.random()*20-10}px)`;
+
+  document.getElementById(msgId).innerText =
+    "NO option bas naam ka hai 🤭💗";
+}
+
+function openLetter(){
+  document.getElementById("letter").style.display="block";
+}
+
+/* Gifts */
+function kisses(b){ if(b.done) return; b.done=true; b.innerText="I Love"; pop(b,"💋"); }
+function hugs(b){ if(b.done) return; b.done=true; b.innerText="youu"; pop(b,"🤗"); }
+function hearts(b){
+  if(b.done) return;
+  b.done=true;
+  b.innerText="ashmit dash";
+  const h=document.createElement("div");
+  h.className="fall"; h.innerText="🤍";
+  b.appendChild(h); setTimeout(()=>h.remove(),1400);
+}
+function pop(b,e){
+  const x=document.createElement("div");
+  x.className="pop"; x.innerText=e;
+  b.appendChild(x); setTimeout(()=>x.remove(),1200);
+}
+</script>
+
+</body>
+</html
